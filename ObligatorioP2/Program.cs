@@ -201,26 +201,14 @@ namespace ObligatorioP2
             }
             else
             {
-                bool existeEquipo = false;
-                foreach (Equipo unE in sistema.GetEquipos())
+                if (sistema.ExisteEquipo(nombreIngresado))
                 {
-                    if (unE.Nombre.ToLower() == nombreIngresado.ToLower())
-                        existeEquipo = true;
-                }
+                    List<Usuario> usuariosPorEquipo = sistema.GetUsuariosPorEquipo(nombreIngresado);
 
-                if (existeEquipo)
-                {
-                    List<Usuario> usuariosE = new List<Usuario>();
-                    foreach (Usuario unU in sistema.GetUsuariosPorEquipo(nombreIngresado))
-                    {
-                        if (unU.Equipo.Nombre.ToLower() == nombreIngresado.ToLower())
-                            usuariosE.Add(unU);
-                    }
-
-                    if (usuariosE.Count > 0)
+                    if (usuariosPorEquipo.Count > 0)
                     {
                         Console.WriteLine("");
-                        foreach (Usuario unU in usuariosE)
+                        foreach (Usuario unU in usuariosPorEquipo)
                             //  Muestro el nombre y email, ya que el equipo lo acabo de ingresar
                             Console.WriteLine(unU.Nombre+" - "+unU.Email);
                     }
@@ -233,9 +221,7 @@ namespace ObligatorioP2
                 {
                     Console.WriteLine("El equipo ingresado no existe");
                 }
-
             }
-
         }
 
         //  Metodos para la consola.

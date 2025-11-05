@@ -375,6 +375,18 @@ namespace Dominio
             return false;
         }
 
+        public bool ExisteEquipo(string EquipoIngresado)
+        {
+            foreach (Equipo unE in _equipos)
+            {
+                if (unE.Nombre.ToLower() == EquipoIngresado.ToLower())
+                {
+                    return true;
+                }
+            }
+                return false;
+        }
+
         public string GenerarEmail(string nombre, string apellido)
         {
 
