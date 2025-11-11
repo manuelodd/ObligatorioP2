@@ -57,73 +57,72 @@ namespace Dominio
             // USUARIOS (22)  -> 5 con mismo nombre y apellido ("Sofía Gómez")
             // =====================
             // (u1..u5 comparten nombre+apellido)
-            Usuario u1 = new Usuario("Sofía", "Gómez", "SofiaG1!", e1, new DateTime(2021, 5, 10));
+            Empleado u1 = new Empleado("Sofía", "Gómez", "SofiaG1!", e1, new DateTime(2021, 5, 10));
             AgregarUsuario(u1);
 
-            Usuario u2 = new Usuario("Sofía", "Gómez", "SofiaG2!", e2, new DateTime(2022, 3, 15));
+            Usuario u2 = new Empleado("Sofía", "Gómez", "SofiaG2!", e2, new DateTime(2022, 3, 15));
             AgregarUsuario(u2);
 
-            Usuario u3 = new Usuario("Sofía", "Gómez", "SofiaG3!", e3, new DateTime(2020, 11, 2));
+            Usuario u3 = new Gerente("Sofía", "Gómez", "SofiaG3!", e3, new DateTime(2020, 11, 2));
             AgregarUsuario(u3);
 
-            Usuario u4 = new Usuario("Sofía", "Gómez", "SofiaG4!", e4, new DateTime(2019, 8, 21));
+            Usuario u4 = new Empleado("Sofía", "Gómez", "SofiaG4!", e4, new DateTime(2019, 8, 21));
             AgregarUsuario(u4);
 
-            Usuario u5 = new Usuario("Sofía", "Gómez", "SofiaG5!", e1, new DateTime(2023, 1, 9));
+            Usuario u5 = new Empleado("Sofía", "Gómez", "SofiaG5!", e1, new DateTime(2023, 1, 9));
             AgregarUsuario(u5);
 
             // Resto (17 con nombres distintos)
-            Usuario u6 = new Usuario("Alex", "Silva", "AlexS!234", e2, new DateTime(2020, 6, 1));
+            Usuario u6 = new Empleado("Alex", "Silva", "AlexS!234", e2, new DateTime(2020, 6, 1));
             AgregarUsuario(u6);
 
-            Usuario u7 = new Usuario("Camila", "Pérez", "CamPz#2020", e3, new DateTime(2018, 7, 12));
+            Usuario u7 = new Empleado("Camila", "Pérez", "CamPz#2020", e3, new DateTime(2018, 7, 12));
             AgregarUsuario(u7);
 
-            Usuario u8 = new Usuario("Diego", "Rodríguez", "DiegoR*77", e4, new DateTime(2022, 9, 30));
+            Usuario u8 = new Empleado("Diego", "Rodríguez", "DiegoR*77", e4, new DateTime(2022, 9, 30));
             AgregarUsuario(u8);
 
-            Usuario u9 = new Usuario("Martina", "López", "MarLo_88", e1, new DateTime(2017, 4, 5));
+            Usuario u9 = new Empleado("Martina", "López", "MarLo_88", e1, new DateTime(2017, 4, 5));
             AgregarUsuario(u9);
 
-            Usuario u10 = new Usuario("Juan", "Torres", "JTorres99", e2, new DateTime(2021, 12, 13));
+            Usuario u10 = new Empleado("Juan", "Torres", "JTorres99", e2, new DateTime(2021, 12, 13));
             AgregarUsuario(u10);
 
-            Usuario u11 = new Usuario("Valentina", "Ramos", "ValeR@22", e3, new DateTime(2019, 2, 18));
+            Usuario u11 = new Empleado("Valentina", "Ramos", "ValeR@22", e3, new DateTime(2019, 2, 18));
             AgregarUsuario(u11);
-
-            Usuario u12 = new Usuario("Bruno", "Acosta", "Bruno_Ac0", e4, new DateTime(2024, 5, 16));
+             
+            Usuario u12 = new Empleado("Bruno", "Acosta", "Bruno_Ac0", e4, new DateTime(2024, 5, 16));
             AgregarUsuario(u12);
 
-            Usuario u13 = new Usuario("Lucía", "Fernández", "LuFer!55", e1, new DateTime(2020, 10, 7));
+            Usuario u13 = new Empleado("Lucía", "Fernández", "LuFer!55", e1, new DateTime(2020, 10, 7));
             AgregarUsuario(u13);
 
-            Usuario u14 = new Usuario("Agustín", "Morales", "AgusM_12", e2, new DateTime(2016, 3, 3));
+            Usuario u14 = new Empleado("Agustín", "Morales", "AgusM_12", e2, new DateTime(2016, 3, 3));
             AgregarUsuario(u14);
 
-            Usuario u15 = new Usuario("Paula", "Castro", "PauCast*4", e3, new DateTime(2018, 1, 23));
+            Usuario u15 = new Empleado("Paula", "Castro", "PauCast*4", e3, new DateTime(2018, 1, 23));
             AgregarUsuario(u15);
 
-            Usuario u16 = new Usuario("Felipe", "Suárez", "FeliS-77", e4, new DateTime(2023, 7, 19));
+            Usuario u16 = new Empleado("Felipe", "Suárez", "FeliS-77", e4, new DateTime(2023, 7, 19));
             AgregarUsuario(u16);
 
-            Usuario u17 = new Usuario("Carolina", "Vega", "CaroVega99", e1, new DateTime(2022, 11, 11));
+            Usuario u17 = new Empleado("Carolina", "Vega", "CaroVega99", e1, new DateTime(2022, 11, 11));
             AgregarUsuario(u17);
 
-            Usuario u18 = new Usuario("Nicolás", "Sosa", "Nico_S0sa", e2, new DateTime(2019, 6, 6));
+            Usuario u18 = new Empleado("Nicolás", "Sosa", "Nico_S0sa", e2, new DateTime(2019, 6, 6));
             AgregarUsuario(u18);
 
-            Usuario u19 = new Usuario("Jimena", "Alonso", "JimeA#33", e3, new DateTime(2021, 8, 28));
+            Usuario u19 = new Empleado("Jimena", "Alonso", "JimeA#33", e3, new DateTime(2021, 8, 28));
             AgregarUsuario(u19);
 
-            Usuario u20 = new Usuario("Rodrigo", "Ferrer", "RodFe_01", e4, new DateTime(2020, 12, 2));
+            Usuario u20 = new Gerente("Rodrigo", "Ferrer", "RodFe_01", e4, new DateTime(2020, 12, 2));
             AgregarUsuario(u20);
 
-            Usuario u21 = new Usuario("Micaela", "Núñez", "MicaN2024", e1, new DateTime(2024, 2, 14));
+            Usuario u21 = new Gerente("Micaela", "Núñez", "MicaN2024", e1, new DateTime(2024, 2, 14));
             AgregarUsuario(u21);
 
-            Usuario u22 = new Usuario("Tomás", "Pereyra", "TomPereyra!", e2, new DateTime(2017, 9, 9));
+            Usuario u22 = new Gerente("Tomás", "Pereyra", "TomPereyra!", e2, new DateTime(2017, 9, 9));
             AgregarUsuario(u22);
-
 
             // =====================
             // TIPOS DE GASTO (10)
@@ -415,7 +414,7 @@ namespace Dominio
 
             string extension = "@laEmpresa.com";
 
-            string emailCreado = nombreDeUsuario + extension;
+            string emailCreado = nombreDeUsuario + extension.ToLower();
 
             int contador = 0;
 
@@ -440,6 +439,26 @@ namespace Dominio
             } while (existe);
 
             return emailCreado;
+        }
+
+        public Usuario AutenticarUsuario(string email, string password)
+        {
+            Usuario buscado = null;
+            int i = 0;
+            while (buscado == null && i < _usuarios.Count)
+            {
+                if (_usuarios[i].Email == email.ToLower())
+                    buscado = _usuarios[i];
+                i++;
+            }
+
+            if (buscado == null)
+                throw new Exception("Email es incorrecto");
+
+            if(buscado.Contrasenia != password)
+                throw new Exception("contraseña es incorrecta");
+
+            return buscado;
         }
 
     }

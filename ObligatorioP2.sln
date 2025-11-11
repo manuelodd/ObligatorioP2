@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.36518.9 d17.14
+VisualStudioVersion = 17.14.36518.9
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObligatorioP2", "ObligatorioP2\ObligatorioP2.csproj", "{5821B40C-3163-46F7-805E-3E8E90CB4A56}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dominio", "Dominio\Dominio.csproj", "{61EA6C3C-F203-44BB-982B-B064D87E33C9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObligatorioProg2", "ObligatorioProg2\ObligatorioProg2.csproj", "{122324E2-FE40-4E2A-BE3C-6EF6E5A29400}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5821B40C-3163-46F7-805E-3E8E90CB4A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5821B40C-3163-46F7-805E-3E8E90CB4A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5821B40C-3163-46F7-805E-3E8E90CB4A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5821B40C-3163-46F7-805E-3E8E90CB4A56}.Release|Any CPU.Build.0 = Release|Any CPU
 		{61EA6C3C-F203-44BB-982B-B064D87E33C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{61EA6C3C-F203-44BB-982B-B064D87E33C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{61EA6C3C-F203-44BB-982B-B064D87E33C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{61EA6C3C-F203-44BB-982B-B064D87E33C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{122324E2-FE40-4E2A-BE3C-6EF6E5A29400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{122324E2-FE40-4E2A-BE3C-6EF6E5A29400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{122324E2-FE40-4E2A-BE3C-6EF6E5A29400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{122324E2-FE40-4E2A-BE3C-6EF6E5A29400}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

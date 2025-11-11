@@ -1,0 +1,20 @@
+﻿@using Dominio
+@model string
+
+<h1>Login</h1>
+
+<form action="/Home/Login" method="post">
+    <input type="text" name="email" placeholder="Ingrese email" value="@Model" />
+    <input type="password" name="password" placeholder="Ingrese contraseña" />
+    <input type="submit" class="btn btn-success" value="Iniciar sesion" />
+</form>
+
+@if(ViewBag.Error != null)
+{
+    <p class="alert-danger">@ViewBag.Error</p>
+}
+@if (TempData != null)
+{
+    <p class="alert-warning">@TempData["login"]</p>
+   
+}

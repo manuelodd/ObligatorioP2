@@ -1,6 +1,6 @@
 ﻿namespace Dominio
 {
-    public class Usuario
+    public abstract class Usuario
     {
 
         private string _nombre;
@@ -9,6 +9,8 @@
         private string _contrasenia;
         private Equipo _equipo;
         private DateTime _empleadoDesde;
+
+        public string Rol { get; set; }
 
         public string Nombre
         {
@@ -74,6 +76,8 @@
         {
             return $"{Nombre} - {Email} - {Equipo}";
         }
+
+        public abstract string ObtenerRol();
 
     }
 }
