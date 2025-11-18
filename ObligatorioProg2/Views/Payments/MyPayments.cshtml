@@ -1,0 +1,36 @@
+﻿@using Dominio
+@model List<Pago>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<h1>Mis pagos</h1>
+
+@if (Model == null || Model.Count == 0)
+{
+    <p>No tenés pagos registrados.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Monto</th>
+                <th>Tipo de gasto</th>
+                <th>Descripción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(Pago unP in Model)
+            {
+                <tr>
+                    <td>@unP.Monto</td>
+                    <td>@unP.TipoGasto</td>
+                    <td>@unP.Descripcion</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

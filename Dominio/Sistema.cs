@@ -59,13 +59,13 @@ namespace Dominio
             // (u1..u5 comparten nombre+apellido)
             Empleado u1 = new Empleado("Sofía", "Gómez", "SofiaG1!", e1, new DateTime(2021, 5, 10));
             AgregarUsuario(u1);
-
+            
             Usuario u2 = new Empleado("Sofía", "Gómez", "SofiaG2!", e2, new DateTime(2022, 3, 15));
             AgregarUsuario(u2);
 
             Usuario u3 = new Gerente("Sofía", "Gómez", "SofiaG3!", e3, new DateTime(2020, 11, 2));
             AgregarUsuario(u3);
-
+            
             Usuario u4 = new Empleado("Sofía", "Gómez", "SofiaG4!", e4, new DateTime(2019, 8, 21));
             AgregarUsuario(u4);
 
@@ -292,6 +292,18 @@ namespace Dominio
 
             Pago p42 = new PagoUnico(MetodoPago.DEBITO, g3, u22, "Módem 5G", 11500m, new DateTime(2025, 8, 22));
             AgregarPago(p42);
+
+            Pago p43 = new PagoUnico(MetodoPago.DEBITO, g8, u1, "Almuerzo de integración equipo IT", 3500m, new DateTime(2025, 11, 5)); 
+            AgregarPago(p43);
+
+            Pago p44 = new PagoUnico(MetodoPago.CREDITO, g9, u1, "Compra de plugin de seguridad para código", 8900m, new DateTime(2024, 11, 19)); 
+            AgregarPago(p44);
+
+            Pago p45 = new PagoRecurrente(MetodoPago.CREDITO, g1, u1, "Alquiler oficina satélite IT", 28000m, new DateTime(2025, 11, 1), new DateTime(2026, 10, 31)); 
+            AgregarPago(p45);
+
+            Pago p46 = new PagoRecurrente(MetodoPago.DEBITO, g3, u1, "Servicio extra de conexión dedicada", 4500m, new DateTime(2024, 11, 15), new DateTime(2025, 10, 14));
+            AgregarPago(p46);
         }
 
         public void AgregarEquipo(Equipo nuevoEquipo)
@@ -356,7 +368,7 @@ namespace Dominio
             List<Pago> listado = new List<Pago>();
             foreach (Pago unP in _pagos)
             {
-                if (unP.GetEmailUsuario().ToLower() == EmailIngresado.ToLower())
+                if (unP.GetEmailUsuario() == EmailIngresado)
                 {
                     listado.Add(unP);
                 }
@@ -412,9 +424,9 @@ namespace Dominio
 
             string nombreDeUsuario = nombreCortado.ToLower() + apellidoCortado.ToLower();
 
-            string extension = "@laEmpresa.com";
+            string extension = "@laempresa.com";
 
-            string emailCreado = nombreDeUsuario + extension.ToLower();
+            string emailCreado = nombreDeUsuario + extension;
 
             int contador = 0;
 
@@ -423,19 +435,22 @@ namespace Dominio
 
             do
             {
+                existe = false;
+
                 foreach (Usuario unU in _usuarios)
                 {
                     if (unU.Email == emailCreado)
                     {
                         existe = true;
-                        contador++;
-                        emailCreado = nombreDeUsuario + contador + extension;
-                    }
-                    else
-                    {
-                        existe=false;
                     }
                 }
+
+                if (existe)
+                {
+                    contador++;
+                    emailCreado = nombreDeUsuario + contador + extension;
+                }
+
             } while (existe);
 
             return emailCreado;
@@ -443,8 +458,12 @@ namespace Dominio
 
         public Usuario AutenticarUsuario(string email, string password)
         {
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
+                throw new Exception("No puede haber campos vacios");
+
             Usuario buscado = null;
             int i = 0;
+
             while (buscado == null && i < _usuarios.Count)
             {
                 if (_usuarios[i].Email == email.ToLower())
