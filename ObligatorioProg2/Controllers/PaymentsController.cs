@@ -33,5 +33,20 @@ namespace ObligatorioProg2.Controllers
             }
             return View(listaFiltrada);
         }
+
+        public IActionResult AllPayments() 
+        {
+            if (HttpContext.Session.GetString("email") == null)
+            {
+                TempData["login"] = "Debes iniciar sesion para ver esa pagina";
+                return RedirectToAction("Login", "Home");
+            }
+
+            Usuario usuLogeado = Sistema.Instancia.GetUsuarioPorEmail(HttpContext.Session.GetString("email"));
+            List<Pago> listado = Sistema.Instancia.GetPagosPorEquipo(usuLogeado.Equipo.Nombre);
+
+            return View(listado);
+
+        }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System.Security.Cryptography.X509Certificates;
+﻿using System.ComponentModel.Design;
+using System.Formats.Asn1;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Dominio
 {
@@ -363,6 +365,29 @@ namespace Dominio
             return listado;
         }
 
+        public Usuario GetUsuarioPorEmail(string email)
+        {
+
+            Usuario usuario = null;
+            int i = 0;
+
+            while (usuario == null && i < _usuarios.Count)
+            {
+                if (_usuarios[i].Email == email)
+                {
+                    usuario = _usuarios[i];
+
+                }
+                else 
+                {
+                    i++; 
+                }
+            }
+            return usuario;
+        }
+
+
+
         public List<Pago> GetPagosPorEmail(string EmailIngresado)
         {
             List<Pago> listado = new List<Pago>();
@@ -375,6 +400,23 @@ namespace Dominio
             }
             return listado;
         }
+
+        public List<Pago> GetPagosPorEquipo(string nombreEquipo)
+        {
+            List<Pago> listadoPagosEquipo = new List<Pago>();
+            List<Usuario> listadoUsuarios = GetUsuariosPorEquipo(nombreEquipo);
+
+            foreach(Usuario unU in listadoUsuarios)
+            {
+                List<Pago> pagosUsu = GetPagosPorEmail(unU.Email);
+                foreach(Pago unP in pagosUsu)
+                {
+                    listadoPagosEquipo.Add(unP);
+                }
+            }
+            return listadoPagosEquipo;
+        }
+
 
         public bool ExisteEmail(string EmailIngresado)
         {

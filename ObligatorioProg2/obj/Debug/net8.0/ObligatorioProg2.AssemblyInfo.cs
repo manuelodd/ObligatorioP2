@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ObligatorioProg2")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+280eeb94fc5a33c553263e49267f7d2c3d26d0dd")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9e09eebce27f98925bfb7e9f834ee606d9bd8e53")]
 [assembly: System.Reflection.AssemblyProductAttribute("ObligatorioProg2")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ObligatorioProg2")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
