@@ -36,8 +36,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcQWxsUGF5bWVudHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/LENOVO/Source/Repos/ObligatorioP2/ObligatorioProg2/Views/Payments/CreateRecurrentPayment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcQ3JlYXRlUmVjdXJyZW50UGF5bWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Source/Repos/ObligatorioP2/ObligatorioProg2/Views/Payments/CreateSinglePayment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcQ3JlYXRlU2luZ2xlUGF5bWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/LENOVO/Source/Repos/ObligatorioP2/ObligatorioProg2/Views/Payments/MyPayments.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcTXlQYXltZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/LENOVO/Source/Repos/ObligatorioP2/ObligatorioProg2/Views/Payments/SelectPaymentType.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudHNcU2VsZWN0UGF5bWVudFR5cGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/LENOVO/Source/Repos/ObligatorioP2/ObligatorioProg2/Views/Shared/Error.cshtml]

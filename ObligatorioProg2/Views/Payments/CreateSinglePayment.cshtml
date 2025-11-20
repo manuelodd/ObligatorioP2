@@ -1,0 +1,31 @@
+﻿@using Dominio
+<h1>Registrar nuevo pago único</h1>
+
+<form action="/Payments/CreateSinglePayment" method="post">
+    <select name="MetodoPago"> 
+        <option>Seleccione método de pago</option> 
+        <option value="1">CREDITO</option> 
+        <option value="2">DEBITO</option> 
+        <option value="3">EFECTIVO</option> 
+    </select>
+    <select name="tipoGastoNombre">
+        <option>Seleccione tipo de gasto</option>
+        @foreach(TipoGasto tipoGasto in ViewBag.TipoDeGastos)
+        {
+            <option value="@tipoGasto.Nombre">@tipoGasto.Nombre</option>
+        }
+    </select>
+    <input type="text" name="Descripcion" placeholder="Descripción" />
+    <input type="number" name="Monto" placeholder="Monto" />
+    <input type="date" name="Fecha" />
+    <input type="submit" value="Cargar" />
+</form>
+
+@if (ViewBag.Exito != null)
+{
+    <p>@ViewBag.Exito</p>
+}
+@if(ViewBag.Error != null)
+{
+    <p>@ViewBag.Error</p>
+}

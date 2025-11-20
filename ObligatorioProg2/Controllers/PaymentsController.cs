@@ -46,7 +46,39 @@ namespace ObligatorioProg2.Controllers
             List<Pago> listado = Sistema.Instancia.GetPagosPorEquipo(usuLogeado.Equipo.Nombre);
 
             return View(listado);
+        }
 
+
+        public IActionResult SelectPaymentType()
+        {
+            return View();
+        }
+
+        public IActionResult CreateSinglePayment()
+        {
+            ViewBag.TipoDeGastos = Sistema.Instancia.GetTipoGastos();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateSinglePayment(PagoUnico pago, string tipoGastoNombre)
+        {
+            try 
+            {
+            pago.Usuario = Sistema.Instancia.GetUsuarioPorEmail(HttpContext.Session.GetString("email"));
+            pago.TipoGasto = Sistema.Instancia.GetTipoGastoPorNombre(tipoGastoNombre);
+            pago.Validar();
+            Sistema.Instancia.AgregarPago(pago);
+                ViewBag.Exito = "Pago registrado con éxito!";
+            }
+            catch(Exception ex)
+            {
+                ViewBag.Error = ex.Message;
+            }
+
+            ViewBag.TipoDeGastos = Sistema.Instancia.GetTipoGastos();
+
+            return View();
         }
     }
 }

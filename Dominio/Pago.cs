@@ -46,6 +46,7 @@
             set { _monto = value; }
         }
 
+        public Pago() { }
         public Pago(MetodoPago metodoPago, TipoGasto tipoGasto, Usuario usuario, string descripcion, decimal monto)
         {
             Id = ++s_ultimoID;

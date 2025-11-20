@@ -8,10 +8,13 @@
             set { _fecha = value; } 
         }
 
+     
         public PagoUnico(MetodoPago metodoPago, TipoGasto tipoGasto, Usuario usuario, string descripcion, decimal monto, DateTime fecha) : base(metodoPago, tipoGasto, usuario, descripcion, monto)
         {
             Fecha = fecha;
         }
+
+        public PagoUnico() : base() { }
 
         public override decimal CalcularMontoTotal(Pago pago) //ToDo
         {

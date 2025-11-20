@@ -417,6 +417,23 @@ namespace Dominio
             return listadoPagosEquipo;
         }
 
+        public List<TipoGasto> GetTipoGastos()
+        {
+            return _tipoGastos;
+        }
+
+        public TipoGasto GetTipoGastoPorNombre(string nombre)
+        {
+        
+            foreach (TipoGasto tipoGasto in _tipoGastos)
+            {
+                if (tipoGasto.Nombre == nombre)
+                    return tipoGasto;
+            }
+            return null;
+        }
+
+       
 
         public bool ExisteEmail(string EmailIngresado)
         {
