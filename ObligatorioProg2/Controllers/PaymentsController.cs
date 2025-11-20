@@ -80,5 +80,32 @@ namespace ObligatorioProg2.Controllers
 
             return View();
         }
+
+        public IActionResult CreateRecurrentPayment()
+        {
+            ViewBag.TipoDeGastos = Sistema.Instancia.GetTipoGastos();
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateRecurrentPayment(PagoRecurrente pago, string tipoGastoNombre)
+        {
+            try
+            {
+                pago.Usuario = Sistema.Instancia.GetUsuarioPorEmail(HttpContext.Session.GetString("email"));
+                pago.TipoGasto = Sistema.Instancia.GetTipoGastoPorNombre(tipoGastoNombre);
+                pago.Validar();
+                Sistema.Instancia.AgregarPago(pago);
+                ViewBag.Exito = "Pago registrado con éxito!";
+            }
+            catch (Exception ex)
+            {
+                ViewBag.Error = ex.Message;
+            }
+
+            ViewBag.TipoDeGastos = Sistema.Instancia.GetTipoGastos();
+
+            return View();
+        }
     }
 }

@@ -19,6 +19,7 @@ namespace Dominio
             set { _hasta = value; }
         }
 
+        public PagoRecurrente() : base() { }
         public PagoRecurrente(MetodoPago metodoPago, TipoGasto tipoGasto, Usuario usuario, string descripcion, decimal monto, DateTime desde, DateTime hasta) : base(metodoPago, tipoGasto, usuario, descripcion, monto)
         {
             Desde = desde;
