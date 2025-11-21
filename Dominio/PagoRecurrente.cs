@@ -49,6 +49,10 @@ namespace Dominio
         public override void Validar()
         {
             base.Validar();
+            if (Desde == DateTime.MinValue || Hasta == DateTime.MinValue)
+            {
+                throw new Exception("Las fechas no pueden ser vacías");
+            }
             if (Desde > Hasta && Hasta != new DateTime())
             {
                 throw new Exception("La fecha de la primera cuota debe ser menor a la de la siguiente o ultima");

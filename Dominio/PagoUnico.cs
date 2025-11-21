@@ -23,6 +23,10 @@
 
         public override void Validar()
         {
+            if (Fecha == DateTime.MinValue)
+            {
+                throw new Exception("La fecha no puede ser vacía");
+            }
             base.Validar();
         }
 
