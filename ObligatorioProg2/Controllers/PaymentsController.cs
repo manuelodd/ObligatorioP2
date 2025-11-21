@@ -1,4 +1,5 @@
 ﻿using Dominio;
+using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ObligatorioProg2.Controllers
@@ -31,10 +32,12 @@ namespace ObligatorioProg2.Controllers
                     listaFiltrada.Add(unPR);
                 }
             }
+
             return View(listaFiltrada);
         }
 
-        public IActionResult AllPayments() 
+
+        public IActionResult AllPayments(int? mes, int? anio) 
         {
             if (HttpContext.Session.GetString("email") == null)
             {
@@ -43,9 +46,38 @@ namespace ObligatorioProg2.Controllers
             }
 
             Usuario usuLogeado = Sistema.Instancia.GetUsuarioPorEmail(HttpContext.Session.GetString("email"));
-            List<Pago> listado = Sistema.Instancia.GetPagosPorEquipo(usuLogeado.Equipo.Nombre);
 
-            return View(listado);
+            DateTime hoy = DateTime.Today;
+            int mesBuscado = mes.GetValueOrDefault(hoy.Month);
+            int anioBuscado = anio.GetValueOrDefault(hoy.Year);
+
+            DateTime inicioMes = new DateTime(anioBuscado, mesBuscado, 1);
+            DateTime finMes = new DateTime(anioBuscado, mesBuscado, DateTime.DaysInMonth(anioBuscado, mesBuscado));
+
+            List<Pago> pagosEquipo = Sistema.Instancia.GetPagosPorEquipo(usuLogeado.Equipo.Nombre);
+            List<Pago> pagosEquipoFiltrados = new List<Pago>();
+
+            foreach (Pago p in pagosEquipo)
+            {
+                if (p is PagoUnico unPU)
+                {
+                    if (unPU.Fecha >= inicioMes && unPU.Fecha <= finMes) pagosEquipoFiltrados.Add(unPU);
+                }
+                else
+                {
+                    if (p is PagoRecurrente unPR)
+                    {
+                        if (unPR.Desde <= finMes && unPR.Hasta >= inicioMes) pagosEquipoFiltrados.Add(unPR);
+                    }
+                }
+
+            }
+
+            ViewBag.Mes = mesBuscado;
+            ViewBag.Anio = anioBuscado; 
+
+            pagosEquipoFiltrados.Sort();
+            return View(pagosEquipoFiltrados);
         }
 
 

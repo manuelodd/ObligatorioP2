@@ -28,3 +28,14 @@
         }
     </tbody>
 </table>
+
+<form method="get" action="/Payments/AllPayments">
+
+    <label>Mes</label>
+    <input type="number" name="mes" min="1" max="12" value="@ViewBag.Mes" />
+
+    <label>Año</label>
+    <input type="number" name="anio" min="2000" max="2100" value="@ViewBag.Anio" />
+
+    <input type="submit" value="Filtrar" />
+</form>

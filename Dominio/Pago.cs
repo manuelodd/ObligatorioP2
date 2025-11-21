@@ -1,6 +1,6 @@
 ﻿namespace Dominio
 {
-    public abstract class Pago
+    public abstract class Pago : IComparable
     {
         private static int s_ultimoID = 0;
 
@@ -69,6 +69,29 @@
             return $"Pago | {Id} | Método: {MetodoPago} ";
         }
 
+
+        public int CompareTo(object? obj)
+        {
+            if (obj is Pago otroPago)
+            {
+                if (Monto.CompareTo(otroPago.Monto) < 0)
+                {
+                    return 1;
+                }
+                else if (Monto.CompareTo(otroPago.Monto) > 0)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return 0;
+                }
+            }
+            else
+            {
+                return -1;
+            }
+        }
         public virtual void Validar()
         {
             if ((int)MetodoPago <= 0 || (int)MetodoPago > 3)
