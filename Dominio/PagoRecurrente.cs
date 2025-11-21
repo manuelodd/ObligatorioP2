@@ -49,9 +49,9 @@ namespace Dominio
         public override void Validar()
         {
             base.Validar();
-            if (Desde == DateTime.MinValue || Hasta == DateTime.MinValue)
+            if (Desde == DateTime.MinValue)
             {
-                throw new Exception("Las fechas no pueden ser vacías");
+                throw new Exception("La fecha de inicio no no puede ser vacías");
             }
             if (Desde > Hasta && Hasta != new DateTime())
             {

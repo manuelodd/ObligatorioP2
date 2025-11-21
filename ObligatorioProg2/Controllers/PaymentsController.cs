@@ -127,6 +127,8 @@ namespace ObligatorioProg2.Controllers
                 pago.Usuario = Sistema.Instancia.GetUsuarioPorEmail(HttpContext.Session.GetString("email"));
                 pago.TipoGasto = Sistema.Instancia.GetTipoGastoPorNombre(tipoGastoNombre);
                 pago.Validar();
+                if (pago.Hasta.Year == new DateTime().Year) pago.Hasta = new DateTime(2100, 12, 31);
+
                 Sistema.Instancia.AgregarPago(pago);
                 ViewBag.Exito = "Pago registrado con éxito!";
             }
